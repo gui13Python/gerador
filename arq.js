@@ -14,15 +14,19 @@ function generatePassword() {
 document
   .getElementById("generate-btn")
   .addEventListener("click", generatePassword);
-  
-  
-  
-  
 
+function clean_input() {
+  var campo = document.querySelector("#password");
+  campo.value = " ";
+  var input = document.getElementById("generate-btn");
+  var text = input.value;
 
-
-function clean_input(){
-    var campo = document.querySelector('#password');
-    campo.value = " "
+  navigator.clipboard
+    .writeText(text)
+    .then(function () {
+      alert("LA CONTRASEÑA HA SIDO COPIADA: " + text);
+    })
+    .catch(function (error) {
+      console.error("Failed to copy content:", error);
+    });
 }
-    
